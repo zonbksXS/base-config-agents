@@ -1,10 +1,10 @@
 # Tareas: [nombre del cambio]
 
-Estados permitidos: `pendiente`, `en curso`, `bloqueada`, `completada`.
+Estados de tareas permitidos: `pendiente`, `en curso`, `bloqueada`, `completada`. Son independientes del estado documental de `spec.md`.
 
-| ID | Estado | Requisito | Tarea | Dependencias | Evidencia |
-| --- | --- | --- | --- | --- | --- |
-| T-001 | pendiente | REQ-001 | [Tarea concreta] | Ninguna | [Prueba, archivo o resultado] |
+| ID | Estado | REQ / AC | Componente o archivo | Tarea | Dependencias | Evidencia |
+| --- | --- | --- | --- | --- | --- | --- |
+| T-001 | pendiente | REQ-001 / AC-001 | `[ruta]` | [Tarea concreta] | Ninguna | Pendiente |
 
 ## Bloqueos
 
@@ -12,4 +12,4 @@ Estados permitidos: `pendiente`, `en curso`, `bloqueada`, `completada`.
 
 ## Notas de validación
 
-- [Registra únicamente comprobaciones ejecutadas y resultados reales.]
+- **AC-001:** pendiente. [Al ejecutar, registra fecha/revisión, comando o inspección exactos, resultado real y limitaciones. Enlaza la tarea relacionada; no declares éxito por una comprobación prevista.]

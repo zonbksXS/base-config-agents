@@ -397,10 +397,10 @@ sequenceDiagram
         M1-->>A: HTTP y respuesta B
         A->>M2: POST /endpoint-c
         M2-->>A: HTTP y respuesta C
+        A-->>C: HTTP y payload
     else respuesta A finaliza el flujo
         A-->>C: Error o resultado funcional
     end
-    A-->>C: HTTP y payload
 ```
 
 **Componentes e integraciones:** `Dependencia vN.N` (`VARIABLE_CONFIG`).
@@ -502,21 +502,31 @@ respuestas, integraciones y secuencias deben coincidir exactamente con el númer
 también exige componentes por operación, los `flowchart` deben coincidir con ese número más los
 diagramas generales adicionales identificados.
 
+El siguiente ejemplo Bash aplica al perfil con una secuencia por operación y al formato de títulos
+mostrado en la sección 8.2. Ejecútalo como un bloque completo: devuelve un código distinto de cero
+si falta una sección obligatoria, falla una lectura o difiere un conteo. El subshell limita las
+opciones de error al bloque. Los conteos complementan la reconciliación del inventario; no detectan
+por sí solos una operación omitida y otra duplicada.
+
 ```bash
-manual_file='docs/manual-tecnico.md'
+(
+    set -eu
+    manual_file='docs/manual-tecnico.md'
 
-endpoints=$(rg -c '^## [0-9]+\.[0-9]+ (GET|POST|PUT|PATCH|DELETE) ' "$manual_file")
-descriptions=$(rg -c '^\*\*Descripción:\*\*' "$manual_file")
-inputs=$(rg -c '^\*\*Entrada relevante:\*\*' "$manual_file")
-responses=$(rg -c '^\*\*Casos de respuesta:\*\*$' "$manual_file")
-integrations=$(rg -c '^\*\*Componentes e integraciones:\*\*' "$manual_file")
-sequences=$(rg -c '^sequenceDiagram$' "$manual_file")
+    endpoints=$(rg -c '^## [0-9]+\.[0-9]+ (GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS|CONNECT|TRACE) ' "$manual_file")
+    descriptions=$(rg -c '^\*\*Descripción:\*\*' "$manual_file")
+    inputs=$(rg -c '^\*\*Entrada relevante:\*\*' "$manual_file")
+    responses=$(rg -c '^\*\*Casos de respuesta:\*\*$' "$manual_file")
+    integrations=$(rg -c '^\*\*Componentes e integraciones:\*\*' "$manual_file")
+    sequences=$(rg -c '^sequenceDiagram$' "$manual_file")
 
-test "$endpoints" -eq "$descriptions"
-test "$endpoints" -eq "$inputs"
-test "$endpoints" -eq "$responses"
-test "$endpoints" -eq "$integrations"
-test "$endpoints" -eq "$sequences"
+    test "$endpoints" -gt 0
+    test "$endpoints" -eq "$descriptions"
+    test "$endpoints" -eq "$inputs"
+    test "$endpoints" -eq "$responses"
+    test "$endpoints" -eq "$integrations"
+    test "$endpoints" -eq "$sequences"
+)
 ```
 
 Validar también la cobertura de claves de integración. Adaptar `ENDPOINT_` a la convención real:

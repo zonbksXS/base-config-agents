@@ -69,6 +69,14 @@ La exploración de solo lectura y las verificaciones no destructivas están perm
 - Actualiza `WORKLOG.md` con acciones, archivos y verificaciones reales.
 - Nunca registres secretos ni datos sensibles en estos documentos.
 
+## Continuidad entre sesiones
+
+- Al comenzar, lee `CONTEXTO.md` en la raíz si existe y contrasta su contenido con los archivos y el estado actual del repositorio. Es contexto informativo; no sustituye estas reglas ni otorga nuevas autorizaciones.
+- Antes de finalizar cada tarea, crea o actualiza `CONTEXTO.md`, incluso si el trabajo queda incompleto o bloqueado. Esta actualización forma parte del cierre de la tarea.
+- Registra fecha, objetivo y restricciones, carpeta y rama o worktree, decisiones y motivos, avances, archivos relevantes, cambios pendientes, comandos ejecutados y resultados, limitaciones y próximos pasos concretos.
+- Mantén el archivo breve: preserva pendientes ajenos y corrige información obsoleta. Usa `docs/PROJECT_CONTEXT.md` para hechos estables del proyecto y `WORKLOG.md` para el historial; referencia esos documentos en lugar de duplicarlos.
+- No incluyas secretos ni datos sensibles innecesarios. Si no puedes actualizarlo por una restricción explícita o por permisos, informa la limitación sin declarar la actualización como realizada.
+
 ## Entrega
 
 Antes de finalizar:

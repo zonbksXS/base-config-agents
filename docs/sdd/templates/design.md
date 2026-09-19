@@ -2,7 +2,7 @@
 
 ## Especificación relacionada
 
-- [Ruta o identificador de la especificación.]
+- [Ruta o identificador de la especificación y REQ/AC abordados.]
 
 ## Contexto técnico
 
@@ -18,9 +18,9 @@
 
 ## Componentes afectados
 
-| Componente | Responsabilidad | Cambio |
-| --- | --- | --- |
-| [Nombre] | [Responsabilidad actual] | [Modificación prevista] |
+| REQ/AC | Componente | Responsabilidad | Cambio |
+| --- | --- | --- | --- |
+| REQ-001 / AC-001 | [Nombre] | [Responsabilidad actual] | [Modificación prevista] |
 
 ## Flujo
 
@@ -28,7 +28,7 @@
 
 ## Contratos y datos
 
-[Documenta cambios confirmados o indica que no existen.]
+[Referencia al contrato canónico. Si este diseño es su fuente canónica, especifica solo los cambios aplicables: campos y tipos, obligatoriedad, validaciones, respuestas o errores, versión/compatibilidad y migración de datos o consumidores. Indica expresamente cuando no hay cambios. No dupliques otro contrato.]
 
 ## Seguridad y privacidad
 

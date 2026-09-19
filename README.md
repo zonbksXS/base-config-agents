@@ -18,10 +18,14 @@ Plantilla neutral para iniciar proyectos de software asistidos por agentes de in
 | `CODING_STYLE.md` | Criterios generales para escribir y revisar código mantenible. |
 | `CHANGELOG.md` | Historial de cambios relevantes del producto o de la plantilla. |
 | `WORKLOG.md` | Evidencia cronológica del trabajo realizado y sus verificaciones. |
+| [CONTEXTO.md](CONTEXTO.md) | Estado de continuidad entre sesiones: avances, verificaciones y próximos pasos. |
 | `docs/PROJECT_CONTEXT.md` | Contexto, alcance, usuarios y restricciones confirmadas. |
 | `docs/DECISIONS.md` | Registro breve de decisiones técnicas o de proceso. |
-| `docs/sdd/README.md` | Flujo de desarrollo dirigido por especificaciones. |
+| [docs/sdd/README.md](docs/sdd/README.md) | Flujo de desarrollo dirigido por especificaciones y condiciones de inicio y cierre. |
 | `docs/sdd/templates/` | Plantillas neutrales de especificación, diseño, plan y tareas. |
+| [docs/sdd/examples/ejemplo-minimo.md](docs/sdd/examples/ejemplo-minimo.md) | Ejemplo didáctico de trazabilidad desde requisitos hasta comprobaciones. |
+| [docs/instrucciones-generacion-manual-tecnico.md](docs/instrucciones-generacion-manual-tecnico.md) | Guía para documentar comportamiento verificable desde código, contratos y configuración. |
+| `.gitignore` | Exclusiones de archivos locales de macOS. |
 
 ## Uso inicial
 
@@ -30,7 +34,8 @@ Plantilla neutral para iniciar proyectos de software asistidos por agentes de in
 3. Ajustar `AGENTS.md` y `CODING_STYLE.md` con los comandos y convenciones reales del repositorio.
 4. Completar `docs/ARCHITECTURE.md`: elegir el estilo, mapear módulos y rutas reales y registrar adaptaciones aceptadas. En proyectos existentes, documentar primero la arquitectura real.
 5. Para un cambio no trivial, crear su documentación desde `docs/sdd/templates/`.
-6. Mantener `CHANGELOG.md` y `WORKLOG.md` durante la ejecución.
+6. Crear un `CONTEXTO.md` propio del proyecto y mantenerlo al cerrar cada tarea. No trasladar las rutas, estados ni resultados de esta plantilla como si fueran los del proyecto consumidor.
+7. Mantener `CHANGELOG.md` y `WORKLOG.md` durante la ejecución, distinguiendo sus registros de los del proyecto de origen.
 
 ## Principio de adaptación
 
